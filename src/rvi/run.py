@@ -47,7 +47,7 @@ def main(argv=None):
              "aspect_rates_all": {k: round(float(tags[k].mean()), 4) for k in tags.columns},
              "by_department": deps, "odds_ratios": orr.drop(columns=["p_value"]).to_dict("index"), "retriever": champ}
     (A / "stats.json").write_text(json.dumps(stats, indent=1))
-    res = {"data": {"source": "Women's E-Commerce Clothing Reviews (Nick Brooks, "nicapotato" on Kaggle, 2018; CC0)", **log,
+    res = {"data": {"source": "Women's E-Commerce Clothing Reviews (Nick Brooks, 'nicapotato' on Kaggle, 2018; CC0)", **log,
                     "products": int(d["clothing_id"].nunique()), "departments": sorted(deps)},
            "label_check": classify.rating_disagreement(d), "aspects": {"rates": stats["aspect_rates_all"],
            "odds_ratios": orr.to_dict("index")}, "classifier": cls,
