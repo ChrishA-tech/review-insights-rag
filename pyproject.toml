@@ -1,0 +1,22 @@
+[project]
+name = "rvi"
+version = "1.0.0"
+description = "Review insights: aspect odds ratios, a product-grouped recommendation classifier and BM25/LSA/hybrid retrieval behind a citation-checked LLM analyst"
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "numpy>=1.26", "statsmodels>=0.14", "scikit-learn>=1.3", "rank-bm25",
+                "fastapi>=0.110", "uvicorn", "pydantic>=2", "httpx", "matplotlib"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+mlflow = ["mlflow-skinny>=2.10"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+filterwarnings = ["ignore::DeprecationWarning"]

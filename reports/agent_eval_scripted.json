@@ -1,0 +1,299 @@
+{
+ "summary": {
+  "backend": "scripted",
+  "model": "scripted (not an LLM)",
+  "verifier": true,
+  "questions": 22,
+  "accuracy_answerable": 1.0,
+  "correct_abstention": 1.0,
+  "false_abstention": 0.0,
+  "retries": 0,
+  "blocked_by_verifier": 0,
+  "median_latency_s": 0.0,
+  "by_type": {
+   "abstain": 1.0,
+   "grounded": 1.0,
+   "stat": 1.0
+  }
+ },
+ "rows": [
+  {
+   "id": "nr_Dresses",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 12.3723,
+   "answer": "The not-recommended rate is 0.1947."
+  },
+  {
+   "id": "small_Dresses",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0001,
+   "answer": "runs_small appears in 0.0934 of reviews."
+  },
+  {
+   "id": "nr_Tops",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "The not-recommended rate is 0.1893."
+  },
+  {
+   "id": "small_Tops",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "runs_small appears in 0.0606 of reviews."
+  },
+  {
+   "id": "nr_Bottoms",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "The not-recommended rate is 0.1505."
+  },
+  {
+   "id": "small_Bottoms",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "runs_small appears in 0.1095 of reviews."
+  },
+  {
+   "id": "nr_Jackets",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "The not-recommended rate is 0.1667."
+  },
+  {
+   "id": "small_Jackets",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "latency_s": 0.0,
+   "answer": "runs_small appears in 0.1018 of reviews."
+  },
+  {
+   "id": "or_fabric_quality",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "latency_s": 0.0,
+   "answer": "fabric_quality has an odds ratio of 2.7499 for not recommending."
+  },
+  {
+   "id": "or_runs_large",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "latency_s": 0.0,
+   "answer": "runs_large has an odds ratio of 1.7136 for not recommending."
+  },
+  {
+   "id": "or_comfort",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "latency_s": 0.0,
+   "answer": "comfort has an odds ratio of 0.266 for not recommending."
+  },
+  {
+   "id": "or_length",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "latency_s": 0.0,
+   "answer": "length has an odds ratio of 1.2836 for not recommending."
+  },
+  {
+   "id": "rag_0",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0791,
+   "answer": "Relevant reviews: [20028] [2280] [21325]."
+  },
+  {
+   "id": "rag_1",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0466,
+   "answer": "Relevant reviews: [17546] [19102] [11533]."
+  },
+  {
+   "id": "rag_2",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0609,
+   "answer": "Relevant reviews: [7540] [7165] [8485]."
+  },
+  {
+   "id": "rag_3",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0437,
+   "answer": "Relevant reviews: [16377] [21717] [4184]."
+  },
+  {
+   "id": "rag_4",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0469,
+   "answer": "Relevant reviews: [20862] [16598] [6311]."
+  },
+  {
+   "id": "rag_5",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "latency_s": 0.0395,
+   "answer": "Relevant reviews: [16561] [11479] [5469]."
+  },
+  {
+   "id": "abstain_0",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "latency_s": 0.0,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_1",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "latency_s": 0.0,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_2",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "latency_s": 0.0,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_3",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "latency_s": 0.0,
+   "answer": "I can't answer that from the available data."
+  }
+ ]
+}

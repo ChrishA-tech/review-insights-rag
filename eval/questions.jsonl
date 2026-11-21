@@ -1,0 +1,22 @@
+{"id": "nr_Dresses", "type": "stat", "question": "What share of dresses reviews do not recommend the item? Give the not recommended rate.", "expected": [0.1947]}
+{"id": "small_Dresses", "type": "stat", "question": "In dresses, what share of reviews say the item runs small (runs_small rate)?", "expected": [0.0934]}
+{"id": "nr_Tops", "type": "stat", "question": "What share of tops reviews do not recommend the item? Give the not recommended rate.", "expected": [0.1893]}
+{"id": "small_Tops", "type": "stat", "question": "In tops, what share of reviews say the item runs small (runs_small rate)?", "expected": [0.0606]}
+{"id": "nr_Bottoms", "type": "stat", "question": "What share of bottoms reviews do not recommend the item? Give the not recommended rate.", "expected": [0.1505]}
+{"id": "small_Bottoms", "type": "stat", "question": "In bottoms, what share of reviews say the item runs small (runs_small rate)?", "expected": [0.1095]}
+{"id": "nr_Jackets", "type": "stat", "question": "What share of jackets reviews do not recommend the item? Give the not recommended rate.", "expected": [0.1667]}
+{"id": "small_Jackets", "type": "stat", "question": "In jackets, what share of reviews say the item runs small (runs_small rate)?", "expected": [0.1018]}
+{"id": "or_fabric_quality", "type": "stat", "question": "What is the odds ratio for fabric quality on not recommending?", "expected": [2.7499]}
+{"id": "or_runs_large", "type": "stat", "question": "What is the odds ratio for runs large on not recommending?", "expected": [1.7136]}
+{"id": "or_comfort", "type": "stat", "question": "What is the odds ratio for comfort on not recommending?", "expected": [0.266]}
+{"id": "or_length", "type": "stat", "question": "What is the odds ratio for length on not recommending?", "expected": [1.2836]}
+{"id": "rag_0", "type": "grounded", "question": "What do customers say about dresses that run small?", "expected": "citations"}
+{"id": "rag_1", "type": "grounded", "question": "Why do people return jackets?", "expected": "citations"}
+{"id": "rag_2", "type": "grounded", "question": "What complaints are there about thin or see-through tops?", "expected": "citations"}
+{"id": "rag_3", "type": "grounded", "question": "What do reviewers like about comfortable bottoms?", "expected": "citations"}
+{"id": "rag_4", "type": "grounded", "question": "What do customers say when the colour looks different from the photo?", "expected": "citations"}
+{"id": "rag_5", "type": "grounded", "question": "Are there complaints about pilling sweaters in tops?", "expected": "citations"}
+{"id": "abstain_0", "type": "abstain", "question": "Which brand makes the dresses with the most complaints?", "expected": null}
+{"id": "abstain_1", "type": "abstain", "question": "How much did returns cost the company in 2023?", "expected": null}
+{"id": "abstain_2", "type": "abstain", "question": "What does the retailer's CEO think about sizing?", "expected": null}
+{"id": "abstain_3", "type": "abstain", "question": "Which competitor has better reviews?", "expected": null}

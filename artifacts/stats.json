@@ -1,0 +1,158 @@
+{
+ "reviews": 22621,
+ "not_recommended_rate": 0.1812,
+ "aspect_rates_all": {
+  "runs_small": 0.0819,
+  "runs_large": 0.165,
+  "fabric_quality": 0.1323,
+  "length": 0.0441,
+  "colour_vs_photo": 0.053,
+  "price": 0.0612,
+  "comfort": 0.2942,
+  "returning": 0.0847
+ },
+ "by_department": {
+  "Bottoms": {
+   "reviews": 3661,
+   "not_recommended_rate": 0.1505,
+   "avg_rating": 4.279,
+   "aspect_rates": {
+    "runs_small": 0.1095,
+    "runs_large": 0.1415,
+    "fabric_quality": 0.0759,
+    "length": 0.0522,
+    "colour_vs_photo": 0.0333,
+    "price": 0.0615,
+    "comfort": 0.3281,
+    "returning": 0.0724
+   }
+  },
+  "Dresses": {
+   "reviews": 6144,
+   "not_recommended_rate": 0.1947,
+   "avg_rating": 4.139,
+   "aspect_rates": {
+    "runs_small": 0.0934,
+    "runs_large": 0.159,
+    "fabric_quality": 0.1047,
+    "length": 0.0545,
+    "colour_vs_photo": 0.063,
+    "price": 0.0552,
+    "comfort": 0.2386,
+    "returning": 0.0921
+   }
+  },
+  "Intimate": {
+   "reviews": 1650,
+   "not_recommended_rate": 0.1539,
+   "avg_rating": 4.27,
+   "aspect_rates": {
+    "runs_small": 0.0921,
+    "runs_large": 0.1048,
+    "fabric_quality": 0.1582,
+    "length": 0.0279,
+    "colour_vs_photo": 0.0394,
+    "price": 0.0576,
+    "comfort": 0.4321,
+    "returning": 0.0727
+   }
+  },
+  "Jackets": {
+   "reviews": 1002,
+   "not_recommended_rate": 0.1667,
+   "avg_rating": 4.254,
+   "aspect_rates": {
+    "runs_small": 0.1018,
+    "runs_large": 0.1717,
+    "fabric_quality": 0.0968,
+    "length": 0.0349,
+    "colour_vs_photo": 0.0519,
+    "price": 0.0758,
+    "comfort": 0.2934,
+    "returning": 0.0778
+   }
+  },
+  "Tops": {
+   "reviews": 10046,
+   "not_recommended_rate": 0.1893,
+   "avg_rating": 4.158,
+   "aspect_rates": {
+    "runs_small": 0.0606,
+    "runs_large": 0.186,
+    "fabric_quality": 0.1695,
+    "length": 0.0385,
+    "colour_vs_photo": 0.0555,
+    "price": 0.0636,
+    "comfort": 0.2957,
+    "returning": 0.0867
+   }
+  },
+  "Trend": {
+   "reviews": 118,
+   "not_recommended_rate": 0.2542,
+   "avg_rating": 3.839,
+   "aspect_rates": {
+    "runs_small": 0.1271,
+    "runs_large": 0.1949,
+    "fabric_quality": 0.0932,
+    "length": 0.0339,
+    "colour_vs_photo": 0.1271,
+    "price": 0.0847,
+    "comfort": 0.0932,
+    "returning": 0.1271
+   }
+  }
+ },
+ "odds_ratios": {
+  "runs_small": {
+   "odds_ratio": 1.0452,
+   "ci_low": 0.9229,
+   "ci_high": 1.1838,
+   "share_of_reviews": 0.0819,
+   "not_recommended_rate_when_present": 0.1954
+  },
+  "runs_large": {
+   "odds_ratio": 1.7136,
+   "ci_low": 1.5719,
+   "ci_high": 1.868,
+   "share_of_reviews": 0.165,
+   "not_recommended_rate_when_present": 0.2551
+  },
+  "fabric_quality": {
+   "odds_ratio": 2.7499,
+   "ci_low": 2.5163,
+   "ci_high": 3.0053,
+   "share_of_reviews": 0.1323,
+   "not_recommended_rate_when_present": 0.3368
+  },
+  "length": {
+   "odds_ratio": 1.2836,
+   "ci_low": 1.0948,
+   "ci_high": 1.5049,
+   "share_of_reviews": 0.0441,
+   "not_recommended_rate_when_present": 0.2214
+  },
+  "colour_vs_photo": {
+   "odds_ratio": 0.9352,
+   "ci_low": 0.8011,
+   "ci_high": 1.0918,
+   "share_of_reviews": 0.053,
+   "not_recommended_rate_when_present": 0.1868
+  },
+  "price": {
+   "odds_ratio": 0.8725,
+   "ci_low": 0.7525,
+   "ci_high": 1.0116,
+   "share_of_reviews": 0.0612,
+   "not_recommended_rate_when_present": 0.1763
+  },
+  "comfort": {
+   "odds_ratio": 0.266,
+   "ci_low": 0.2401,
+   "ci_high": 0.2947,
+   "share_of_reviews": 0.2942,
+   "not_recommended_rate_when_present": 0.0706
+  }
+ },
+ "retriever": "bm25"
+}
