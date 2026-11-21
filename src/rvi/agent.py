@@ -66,6 +66,8 @@ def bad_citations(answer: str, evidence: list) -> list[str]:
 def unsupported(answer: str, evidence: list, question: str) -> list[float]:
     allowed = [x for e in evidence for x in _flatten(e)] + numbers(question)
     allowed += [a * 100 for a in allowed if abs(a) <= 1]  # 0.875 may be written as 87.5%
+    if re.search(r"confidence|\bCI\b", answer or "", re.I):
+        allowed += [90.0, 95.0, 99.0]  # the confidence level of a reported interval is not a data value
     bad = []
     for n in numbers(CITE.sub(" ", answer or "")):
         if not any(abs(n - a) <= max(0.051, 0.01 * abs(a)) for a in allowed):

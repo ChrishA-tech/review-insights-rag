@@ -40,7 +40,7 @@ def main():
     for q in qs:
         r = agent.ask(q["question"])
         rows.append({"id": q["id"], "type": q["type"], "correct": correct(q, r), "abstained": r.abstained,
-                     "retried": r.retried, "verified": r.verified, "tools": [t["name"] for t in r.tool_calls],
+                     "retried": r.retried, "verified": r.verified, "tools": [t["name"] for t in r.tool_calls], "tool_args": [t["args"] for t in r.tool_calls],
                      "latency_s": r.latency_s, "answer": r.answer})
         print(f"{'OK ' if rows[-1]['correct'] else 'BAD'} {q['id']:<22} {r.answer[:90]}")
     ans = [x for x in rows if x["type"] != "abstain"]
