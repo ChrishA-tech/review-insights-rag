@@ -51,15 +51,30 @@ def _flatten(obj) -> list[float]:
     return []
 
 
-CITE = re.compile(r"\[(\d{1,6})\]")
+CITE = re.compile(r"\[(\d{1,6}(?:\s*,\s*\d{1,6})*)\]")            # [12] or [12, 345]
+CITE_WORDS = re.compile(r"\breviews?\s+(?:IDs?\s*)?#?(\d{2,6}(?:\s*(?:,|and)\s*#?\d{2,6})*)", re.I)  # review ID 12 / reviews 12 and 34
 QUOTE = re.compile(r'"([^"]{8,})"')
+
+
+def cited_ids(answer: str) -> list[int]:
+    ids = []
+    for m in CITE.findall(answer or "") + CITE_WORDS.findall(answer or ""):
+        ids += [int(x) for x in re.findall(r"\d+", m)]
+    return ids
+
+
+def strip_citations(answer: str) -> str:
+    return CITE_WORDS.sub(" ", CITE.sub(" ", answer or ""))
 
 
 def bad_citations(answer: str, evidence: list) -> list[str]:
     """Cited review IDs must come from a search result; quoted text must appear in one of the retrieved reviews."""
-    seen = {r["review_id"]: r["text"].lower() for e in evidence if isinstance(e, dict) for r in e.get("reviews", [])}
-    bad = [f"[{c}]" for c in CITE.findall(answer or "") if int(c) not in seen]
-    bad += [f'"{q[:40]}"' for q in QUOTE.findall(answer or "") if not any(q.lower().strip(" .,") in t for t in seen.values())]
+    seen = {r["review_id"]: r["text"].lower() for e in evidence if isinstance(e, dict)
+            for r in (e.get("reviews") if isinstance(e.get("reviews"), list) else [])}
+    bad = [f"[{c}]" for c in cited_ids(answer) if c not in seen]
+    # only check real quotations (3+ words); quoted labels such as "runs_large" are not claims about review text
+    bad += [f'"{q[:40]}"' for q in QUOTE.findall(answer or "")
+            if len(q.split()) >= 3 and not any(q.lower().strip(" .,") in t for t in seen.values())]
     return bad
 
 
@@ -69,7 +84,7 @@ def unsupported(answer: str, evidence: list, question: str) -> list[float]:
     if re.search(r"confidence|\bCI\b", answer or "", re.I):
         allowed += [90.0, 95.0, 99.0]  # the confidence level of a reported interval is not a data value
     bad = []
-    for n in numbers(CITE.sub(" ", answer or "")):
+    for n in numbers(strip_citations(answer)):
         if not any(abs(n - a) <= max(0.051, 0.01 * abs(a)) for a in allowed):
             bad.append(n)
     return bad

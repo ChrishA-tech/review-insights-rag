@@ -12,8 +12,9 @@ analyst that answers from retrieved reviews with citations that are checked befo
 - **Retrieval measured without hand labels.** Known-item search (a review's title finds its own text): BM25 finds the right review
   in the top 10 for **14.0%** of 1,000 held-out queries, against 9.6% for a hybrid and 4.3% for dense LSA
   (random: 0.04%). Adding the dense retriever **hurt**, so BM25 was kept, chosen on separate validation queries.
-- **Citation-checked answers.** Every cited review ID must come from the search results and every quoted phrase must appear in a
-  cited review; otherwise the agent retries once, then refuses.
+- **Citation-checked answers, measured.** Every cited review ID must come from the search results and every quotation must appear in a
+  retrieved review, else the agent retries, then refuses. With qwen2.5:7b this removed all 6 unsupported answers (5 invented citations,
+  one number off by 10×) at the same supported accuracy, 61%.
 
 ![Odds ratios](reports/01_odds_ratios.png)
 
@@ -83,14 +84,33 @@ valid citations, 4 that must be refused).
 ```bash
 bash scripts/run_agent_eval.sh      # qwen2.5:7b via Ollama, with and without the checks
 ```
-CI runs the harness with a scripted keyword router to test the plumbing; that is not a model result. LLM results: _pending a local run_.
+CI runs the harness with a scripted keyword router to test the plumbing; that is not a model result.
+
+**Results: qwen2.5:7b via Ollama, temperature 0** (`reports/agent_eval_qwen2.5_7b*.json`, every answer checked against the tool outputs)
+
+| | With checks | Without checks |
+|---|---|---|
+| Scored correct, 18 answerable questions | 61.1% | 83.3% |
+| Answers given | 11 | 17 |
+| **Answers with an invented citation or a wrong number** | **0** | **6** |
+| **Correct and fully supported** | **61.1%** | **61.1%** |
+| Correct refusals, 4 unanswerable questions | 4 / 4 | 4 / 4 |
+| Median latency | 3.2 s | 2.7 s |
+
+- Without the checks the model cited a review **[1234]** that no search returned in 5 answers, and once reported 1.7% of tops reviews
+  mentioning fabric quality when the tool said **16.95%**. The higher unchecked score counts those answers as correct.
+- With the checks it gave fewer answers but none of them was unsupported: the same supported accuracy, with no misleading answers.
+- Remaining weakness: open "why" questions (returns, pilling) were routed to statistics tools instead of review search and refused.
+- **The first run (kept in `reports/agent_eval_run1_*`)** exposed three harness issues, fixed before the run above: the citation checker
+  only read `[123]` (so `[12, 34]` and "review ID 12" escaped checking), quoted labels such as "runs_large" were treated as quotations,
+  and the statistics tool's description did not mention the not-recommended rate. No further tuning on these 22 questions after the second run.
 
 ## Run
 ```bash
 pip install -e ".[dev]"
 bash scripts/get_data.sh
 python -m rvi.run && python -m rvi.charts      # ~3 min (retrieval benchmark is most of it)
-pytest -q                                      # 6 tests
+pytest -q                                      # 8 tests
 uvicorn rvi.api:app --port 8080                # /health /search /aspects /odds-ratios /predict
 ```
 

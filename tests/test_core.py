@@ -27,3 +27,16 @@ def test_citation_and_quote_checks():
 
 def test_citation_numbers_are_not_treated_as_statistics():
     assert agent.unsupported("Reviews [1234] and [5678] mention it.", [{"reviews": []}], "q") == []
+
+
+def test_citation_check_ignores_non_review_tool_outputs():
+    ev = [{"reviews": 22621, "aspect_rates": {}}, {"reviews": [{"review_id": 7, "text": "Runs small."}]}]
+    assert agent.bad_citations("See [7].", ev) == []
+
+
+def test_citation_formats_are_all_checked():
+    ev = [{"reviews": [{"review_id": 15119, "text": "So comfortable and soft."}, {"review_id": 3480, "text": "Love these."}]}]
+    assert agent.cited_ids("Liked [15119, 3480].") == [15119, 3480]
+    assert agent.bad_citations("Liked [15119, 9999].", ev) == ["[9999]"]
+    assert agent.bad_citations("Review ID 9999 says so.", ev) == ["[9999]"]
+    assert agent.bad_citations('The aspect "runs_large" matters.', ev) == []  # a label, not a quotation

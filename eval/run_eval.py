@@ -10,18 +10,19 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, "src")
-from rvi.agent import CITE, OllamaAgent, ScriptedAgent, bad_citations, numbers  # noqa: E402
+from rvi.agent import OllamaAgent, ScriptedAgent, bad_citations, cited_ids, numbers, strip_citations  # noqa: E402
 
 
 def correct(q, r) -> bool:
     if q["expected"] is None:
         return r.abstained
     if q["expected"] == "citations":  # grounded answer: must cite at least 2 retrieved reviews and pass the checks
-        return (not r.abstained) and r.verified and len(set(CITE.findall(r.answer))) >= 2
+        return (not r.abstained) and r.verified and len(set(cited_ids(r.answer))) >= 2
     if r.abstained:
         return False
-    got = numbers(r.answer)
-    return all(any(abs(g - e) <= max(0.051, 0.01 * abs(e)) for g in got) for e in q["expected"])
+    got = numbers(strip_citations(r.answer))
+    got += [g / 100 for g in got]  # a probability of 0.572 may be written as 57.2%
+    return all(any(abs(g - e) <= max(0.051 if abs(e) >= 1 else 0.0051, 0.01 * abs(e)) for g in got) for e in q["expected"])
 
 
 def main():

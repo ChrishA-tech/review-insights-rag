@@ -1,0 +1,503 @@
+{
+ "summary": {
+  "backend": "ollama",
+  "model": "qwen2.5:7b",
+  "verifier": false,
+  "questions": 22,
+  "accuracy_answerable": 0.833,
+  "correct_abstention": 1.0,
+  "false_abstention": 0.056,
+  "retries": 0,
+  "blocked_by_verifier": 0,
+  "median_latency_s": 2.7249999999999996,
+  "by_type": {
+   "abstain": 1.0,
+   "grounded": 0.5,
+   "stat": 1.0
+  },
+  "answered": 17,
+  "answers_with_unsupported_citations_or_numbers": 8,
+  "correct_and_fully_supported": 0.611,
+  "answers_with_unsupported_claims_adjudicated": 6,
+  "adjudication_note": "5 answers cite a review [1234] that no tool returned; rag_5 states 1.7% of tops reviews mention fabric quality (tool value 16.95%). The '71%' in or_runs_large is a correct derivation from odds ratio 1.71, not counted."
+ },
+ "rows": [
+  {
+   "id": "nr_Dresses",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews",
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "max_rating": 2,
+     "query": "",
+     "department": "Dresses",
+     "k": null
+    },
+    {
+     "department": "Dresses"
+    }
+   ],
+   "latency_s": 6.4,
+   "answer": "The share of dress reviews that do not recommend the item is 19.47%. The not recommended rate is 19.47%.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "small_Dresses",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Dresses"
+    }
+   ],
+   "latency_s": 2.09,
+   "answer": "In dresses, 9.34% of the reviews mention that the item runs small [1234].",
+   "unsupported_in_answer": {
+    "citations": [
+     "[1234]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "nr_Tops",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews",
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Tops",
+     "k": null,
+     "max_rating": 2,
+     "query": ""
+    },
+    {
+     "department": "Tops"
+    }
+   ],
+   "latency_s": 4.05,
+   "answer": "The not-recommended rate for tops reviews is 18.93%. This means that 18.93% of the reviews for tops do not recommend the item.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "small_Tops",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Tops"
+    }
+   ],
+   "latency_s": 2.09,
+   "answer": "In tops, 6.06% of the reviews mention that the item runs small [1234].",
+   "unsupported_in_answer": {
+    "citations": [
+     "[1234]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "nr_Bottoms",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Bottoms"
+    }
+   ],
+   "latency_s": 1.81,
+   "answer": "The not-recommended rate for bottoms reviews is 15.05%.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "small_Bottoms",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Bottoms"
+    }
+   ],
+   "latency_s": 2.2,
+   "answer": "In the bottoms department, 10.95% of the reviews mention that the item runs small [1234].",
+   "unsupported_in_answer": {
+    "citations": [
+     "[1234]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "nr_Jackets",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Jackets"
+    }
+   ],
+   "latency_s": 1.8,
+   "answer": "The not-recommended rate for jackets reviews is 16.67%.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "small_Jackets",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Jackets"
+    }
+   ],
+   "latency_s": 2.13,
+   "answer": "In jackets, 10.18% of the reviews mention that the item runs small [1234].",
+   "unsupported_in_answer": {
+    "citations": [
+     "[1234]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "or_fabric_quality",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "fabric_quality"
+    }
+   ],
+   "latency_s": 3.49,
+   "answer": "The odds ratio for fabric quality is 2.75, meaning that the presence of fabric quality issues increases the odds of a customer not recommending the item by 2.75 times. This effect is statistically significant with a 95% confidence interval of 2.52 to 3.01.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "or_runs_large",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "runs_large"
+    }
+   ],
+   "latency_s": 2.38,
+   "answer": "The odds ratio for \"runs_large\" is 1.71, meaning that the presence of large runs increases the odds of not recommending the item by 71%.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": [
+     71.0
+    ]
+   }
+  },
+  {
+   "id": "or_comfort",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "comfort"
+    }
+   ],
+   "latency_s": 3.47,
+   "answer": "The odds ratio for comfort is 0.266, meaning that for every unit increase in the comfort aspect, the odds of a customer not recommending the item decrease by a factor of 0.266. This effect is observed in 29.42% of the reviews mentioning comfort.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "or_length",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "length"
+    }
+   ],
+   "latency_s": 3.99,
+   "answer": "The odds ratio for the aspect \"length\" is 1.2836, meaning that for every unit increase in the mention of length, the odds of a customer not recommending the item increase by a factor of 1.2836. This effect is statistically significant with a 95% confidence interval of 1.0948 to 1.5049.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_0",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "run small",
+     "department": "Dresses"
+    }
+   ],
+   "latency_s": 5.63,
+   "answer": "Customers mention that dresses can run small, especially in the bust and armholes [16678, 22385]. Some recommend sizing up to ensure a more comfortable fit [14536]. However, there are also instances where the dress runs large, and customers had to size down [8101]. Overall, while the fit can be tight, the dresses are generally well-received for their style and quality [21063].",
+   "unsupported_in_answer": {
+    "citations": [
+     "[21063]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_1",
+   "type": "grounded",
+   "correct": false,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Jackets"
+    }
+   ],
+   "latency_s": 3.92,
+   "answer": "People return jackets most frequently due to comfort issues, with 29.34% of reviews mentioning this aspect [1234]. Other common reasons include size runs (10.18% for running small and 17.17% for running large) and fit issues like length (3.49%) and color discrepancies (5.19%).",
+   "unsupported_in_answer": {
+    "citations": [
+     "[1234]"
+    ],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_2",
+   "type": "grounded",
+   "correct": false,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "returning"
+    }
+   ],
+   "latency_s": 3.09,
+   "answer": "I can't answer that from the available data.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_3",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "like comfortable bottoms",
+     "department": "Bottoms"
+    }
+   ],
+   "latency_s": 6.3,
+   "answer": "Reviewers like the comfort and fit of the bottoms [21717, 13347, 8424]. They appreciate how the bottoms hug the body like jeans [21717] and are flatteringly cut with a slimming effect [8424]. The material is described as light and flowy, with great pockets [8424]. However, some find the fit too tight [15378] and the length too short [13672].",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_4",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "colour vs photo",
+     "k": 5
+    }
+   ],
+   "latency_s": 5.2,
+   "answer": "Customers mention that the color can look different from the photo. For example, review [17314] notes that the color in the photo is more blue than the actual product, which is a grey and purplish color. Review [1045] also mentions that the color in the photo is more blue than the actual product, which is a grey and purplish color, and it is described as beautiful for fall.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": []
+   }
+  },
+  {
+   "id": "rag_5",
+   "type": "grounded",
+   "correct": false,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Tops"
+    }
+   ],
+   "latency_s": 3.07,
+   "answer": "In tops, 1.7% of the reviews mention fabric quality issues, which could include complaints about pilling sweaters. However, this aspect is less frequently mentioned compared to comfort issues, which are reported in 29.57% of reviews.",
+   "unsupported_in_answer": {
+    "citations": [],
+    "numbers": [
+     1.7
+    ]
+   }
+  },
+  {
+   "id": "abstain_0",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.44,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_1",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.51,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_2",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.44,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_3",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.43,
+   "answer": "I can't answer that from the available data."
+  }
+ ]
+}

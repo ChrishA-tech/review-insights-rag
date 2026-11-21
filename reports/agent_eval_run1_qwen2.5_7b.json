@@ -1,0 +1,385 @@
+{
+ "summary": {
+  "backend": "ollama",
+  "model": "qwen2.5:7b",
+  "verifier": true,
+  "questions": 22,
+  "accuracy_answerable": 0.278,
+  "correct_abstention": 1.0,
+  "false_abstention": 0.611,
+  "retries": 10,
+  "blocked_by_verifier": 1,
+  "median_latency_s": 3.715,
+  "by_type": {
+   "abstain": 1.0,
+   "grounded": 0.5,
+   "stat": 0.167
+  }
+ },
+ "rows": [
+  {
+   "id": "nr_Dresses",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 10.09,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "small_Dresses",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Dresses"
+    }
+   ],
+   "latency_s": 2.63,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "nr_Tops",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 5.99,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "small_Tops",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Tops"
+    }
+   ],
+   "latency_s": 2.63,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "nr_Bottoms",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 5.91,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "small_Bottoms",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Bottoms"
+    }
+   ],
+   "latency_s": 2.64,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "nr_Jackets",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 6.17,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "small_Jackets",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_aspect_stats"
+   ],
+   "tool_args": [
+    {
+     "department": "Jackets"
+    }
+   ],
+   "latency_s": 2.66,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "or_fabric_quality",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 3.41,
+   "answer": "The odds ratio for fabric quality is 2.75, meaning that fabric quality issues increase the odds of a customer not recommending the item by 2.75 times compared to when there are no fabric quality issues."
+  },
+  {
+   "id": "or_runs_large",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {
+     "aspect": "runs_large"
+    }
+   ],
+   "latency_s": 1.42,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "or_comfort",
+   "type": "stat",
+   "correct": true,
+   "abstained": false,
+   "retried": true,
+   "verified": true,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 4.86,
+   "answer": "The odds ratio for comfort is 0.266. This indicates that a higher comfort level is associated with a lower likelihood of not recommending the item."
+  },
+  {
+   "id": "or_length",
+   "type": "stat",
+   "correct": false,
+   "abstained": true,
+   "retried": true,
+   "verified": false,
+   "tools": [
+    "get_odds_ratios"
+   ],
+   "tool_args": [
+    {}
+   ],
+   "latency_s": 6.42,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "rag_0",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "runs_small",
+     "department": "Dresses"
+    }
+   ],
+   "latency_s": 4.34,
+   "answer": "Customers often mention that dresses from this retailer run small. For example, [9903] states, \"The dress is beautiful but runs small so unfortunately i have to return it.\" Another customer, [14380], notes, \"This dress looks great with bright color, but size runs small.\" Many recommend sizing up to avoid a tight fit."
+  },
+  {
+   "id": "rag_1",
+   "type": "grounded",
+   "correct": false,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "return jackets",
+     "k": 5
+    }
+   ],
+   "latency_s": 3.07,
+   "answer": "I can't answer that from the available data. The provided reviews do not mention reasons for returns specifically related to jackets. Most of the reviews are positive and do not indicate any issues with returns."
+  },
+  {
+   "id": "rag_2",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "thin see-through tops",
+     "k": 5
+    }
+   ],
+   "latency_s": 5.77,
+   "answer": "Customers have complained about thin and see-through tops, as evidenced by reviews [7540, 7165, 17930, 12895, 3779]. For example, review [7165] states the hoodie was too thin and see-through, leading to its return. Review [17930] mentions the sweater is thin but not see-through, while review [3779] notes the fabric is thin but not see-through."
+  },
+  {
+   "id": "rag_3",
+   "type": "grounded",
+   "correct": false,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "comfortable bottoms",
+     "k": 5
+    }
+   ],
+   "latency_s": 4.48,
+   "answer": "Reviewers like the comfort, softness, and perfect fit of the bottoms [15119, 15379, 1039, 3480, 15106]. They also appreciate how the bottoms do not ride up, provide good coverage, and are flattering without being bulky."
+  },
+  {
+   "id": "rag_4",
+   "type": "grounded",
+   "correct": true,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "query": "colour_vs_photo",
+     "k": 5
+    }
+   ],
+   "latency_s": 4.02,
+   "answer": "Customers mention that the color can look different from the photo. For example, review [17314] notes that the color is more grey and purplish than blue, while review [1045] describes the color as a beautiful grey and purplish blue."
+  },
+  {
+   "id": "rag_5",
+   "type": "grounded",
+   "correct": false,
+   "abstained": false,
+   "retried": false,
+   "verified": true,
+   "tools": [
+    "search_reviews"
+   ],
+   "tool_args": [
+    {
+     "department": "Tops",
+     "query": "pilling"
+    }
+   ],
+   "latency_s": 4.29,
+   "answer": "Yes, there are complaints about pilling in tops. For example, review ID 15609 mentions that the sweater started pilling after wearing it twice, and review ID 18757 expresses disappointment with the quality and price, noting that the sweater pilled after cleaning."
+  },
+  {
+   "id": "abstain_0",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.44,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_1",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.51,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_2",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.45,
+   "answer": "I can't answer that from the available data."
+  },
+  {
+   "id": "abstain_3",
+   "type": "abstain",
+   "correct": true,
+   "abstained": true,
+   "retried": false,
+   "verified": true,
+   "tools": [],
+   "tool_args": [],
+   "latency_s": 0.43,
+   "answer": "I can't answer that from the available data."
+  }
+ ]
+}

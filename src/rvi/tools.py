@@ -45,18 +45,24 @@ def get_aspect_stats(department: str | None = None) -> dict:
     return {"error": f"unknown department {department}; options: {sorted(stats['by_department'])}"}
 
 
-def get_odds_ratios() -> dict:
+def get_odds_ratios(aspect: str | None = None) -> dict:
     _, _, stats = _corpus()
+    orr = stats["odds_ratios"]
+    if aspect:
+        key = aspect.strip().lower().replace(" ", "_")
+        if key not in orr:
+            return {"error": f"unknown aspect {aspect}; options: {sorted(orr)}"}
+        orr = {key: orr[key]}
     return {"model": "logistic regression: not recommended ~ aspects + department + age band",
-            "note": "associations, not causes", "odds_ratios": stats["odds_ratios"]}
+            "note": "associations, not causes", "odds_ratios": orr}
 
 
 REGISTRY = {"search_reviews": search_reviews, "get_aspect_stats": get_aspect_stats, "get_odds_ratios": get_odds_ratios}
 SCHEMAS = [
     {"type": "function", "function": {"name": "search_reviews", "description": "Search customer reviews. Optional department (Tops, Dresses, Bottoms, Intimate, Jackets, Trend) and max_rating filters.",
      "parameters": {"type": "object", "properties": {"query": {"type": "string"}, "department": {"type": "string"}, "max_rating": {"type": "integer"}, "k": {"type": "integer"}}, "required": ["query"]}}},
-    {"type": "function", "function": {"name": "get_aspect_stats", "description": "Share of reviews mentioning each aspect (runs_small, runs_large, fabric_quality, length, colour_vs_photo, price, comfort, returning), overall or for one department.",
+    {"type": "function", "function": {"name": "get_aspect_stats", "description": "For all departments or one department: number of reviews, the not-recommended rate, the average rating, and the share of reviews mentioning each aspect (runs_small, runs_large, fabric_quality, length, colour_vs_photo, price, comfort, returning).",
      "parameters": {"type": "object", "properties": {"department": {"type": "string"}}}}},
-    {"type": "function", "function": {"name": "get_odds_ratios", "description": "How much each aspect raises or lowers the odds of a customer not recommending the item.",
-     "parameters": {"type": "object", "properties": {}}}},
+    {"type": "function", "function": {"name": "get_odds_ratios", "description": "How much each aspect raises or lowers the odds of a customer not recommending the item (odds ratios with 95% CIs). Optional aspect filter.",
+     "parameters": {"type": "object", "properties": {"aspect": {"type": "string"}}}}},
 ]
